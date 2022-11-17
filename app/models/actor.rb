@@ -8,13 +8,9 @@ class Actor < ActiveRecord::Base
     end
 
     def blockbusters
-        self.movies.map do |movie|
-          if  movie.box_office_earnings>50000000
-            movie
-          end
-        end
-    end
+      self.movies.where("box_office_earnings > ?", 50_000_000)
 
+  end
     def self.most_successful
         self.all.sort_by{|actor| actor.roles.sum(:salary)}.last
     end

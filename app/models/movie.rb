@@ -12,7 +12,7 @@ end
 def all_credits
 
     self.roles.map do |role|
-        "#{role.character_name}:Played by #{role.actor.name}"
+        "#{role.character_name}: Played by #{role.actor.name}"
     end
 end
 
